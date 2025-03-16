@@ -1,0 +1,70 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Global prompt format
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$nodejs\
+$character"""
+
+# Set global command timeout (in milliseconds)
+command_timeout = 1000
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+
+# Configure directory display with Solarized Dark colors
+[directory]
+truncation_length = 0
+truncate_to_repo = true
+format = "[$path]($style) "
+style = "blue"
+
+# Customize prompt character with Solarized Dark colors
+[character]
+success_symbol = "[❯](#859900)"  # Green
+error_symbol = "[❯](#dc322f)"    # Red
+vimcmd_symbol = "[❮](#268bd2)"   # Blue
+
+# Show command duration only if it takes longer than 2 seconds
+[cmd_duration]
+min_time = 2000
+format = "took [$duration]($style) "
+style = "#b58900"  # Yellow
+
+# Line break for better readability
+[line_break]
+disabled = true
+
+# Display Node.js version when relevant
+[nodejs]
+disabled = false
+format = "via [⬢ $version](#2aa198) "  # Cyan
+
+# Git branch color
+[git_branch]
+format = "[$symbol$branch]($style) "
+style = "#268bd2"  # Blue
+symbol = " "
+
+# Git status color
+[git_status]
+format = "([$all_status$ahead_behind]($style))"
+style = "#dc322f"  # Red
+
+# Username with Solarized Dark theme
+[username]
+style_user = "#b58900"  # Yellow
+style_root = "#dc322f"  # Red
+format = "[$user]($style) "
+show_always = true
+
